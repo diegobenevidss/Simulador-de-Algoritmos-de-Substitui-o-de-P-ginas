@@ -83,7 +83,8 @@ public class Simulador extends JFrame {
         resultados.forEach((alg, faltas) -> sb.append(alg).append(": ").append(faltas).append(" faltas\n"));
 
         String melhor = Collections.min(resultados.entrySet(), Map.Entry.comparingByValue()).getKey();
-        sb.append("\nMelhor desempenho: ").append(melhor);
+        sb.append("\nAnálise:");
+        sb.append("\nO algoritmo com melhor desempenho (menos faltas de página): ").append(melhor);
 
         resultadoArea.setText(sb.toString());
         mostrarGrafico(resultados);

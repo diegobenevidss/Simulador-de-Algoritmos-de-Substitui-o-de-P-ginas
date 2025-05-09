@@ -2,20 +2,20 @@
 
 Este projeto em Java simula os principais algoritmos de substituição de páginas utilizados em sistemas operacionais para gerenciar a memória virtual. São implementados os algoritmos:
 
-- **FIFO (First-In First-Out)**
-- **LRU (Least Recently Used)**
-- **Relógio (Clock)**
-- **Ótimo (Optimal)**
+- **FIFO (First-In First-Out): remove a página mais antiga da memória.**
+- **LRU (Least Recently Used): substitui a página que não é usada há mais tempo.**
+- **Relógio (Clock):  uma otimização do FIFO com bits de uso que permitem “segunda chance”.**
+- **Ótimo (Optimal): remove a página que será utilizada mais tarde no futuro — utilizado como referência teórica.**
 
 O simulador possui uma interface gráfica onde o usuário pode inserir:
 - A **sequência de páginas** desejada
 - O **número de quadros de memória**
 
-Após a simulação, o programa exibe a quantidade de *faltas de página* para cada algoritmo, bem como um **gráfico de barras colorido** comparando os resultados.
+Após a simulação, o programa exibe a quantidade de **faltas de página** para cada algoritmo, bem como um **gráfico de barras colorido** comparando os resultados.
 
 ## 📂 Estrutura
 
-- `main/java/Main.java`: Classe principal do simulador, onde contêm todas as implementações dos algoritmos.
+- `main/java/Algoritmos.java`: Classe principal do simulador, onde contêm todas as implementações dos algoritmos.
 - `main/java/Simulador.java`: Interface gráfica que recebe os dados do usuário e apresenta os resultados.
 - `main/java/GraficoBarras.java`: Responsável pela geração do gráfico de barras com os resultados.
 
@@ -43,8 +43,8 @@ Remove a página que será usada mais tardiamente no futuro (ideal, porém irrea
 
 2. Compile todos os arquivos java:
    ```
+   src/main/java/Algoritmos.java
    src/main/java/GraficoBarras.java 
-   src/main/java/Main.java
    src/main/java/Simulador.java
    ```
 
@@ -64,28 +64,34 @@ Remove a página que será usada mais tardiamente no futuro (ideal, porém irrea
 
    ```
    Sequência: [1, 2, 3, 2, 4, 1, 5, 2, 4, 3, 2, 1]
-   Quadros: 3
-   
-   Método FIFO - 10 faltas de página  
-   Método LRU - 10 faltas de página  
-   Método Relógio - 10 faltas de página  
-   Método Ótimo - 7 faltas de página
+Quadros: 3
 
-   Análise:  
-   O algoritmo com melhor desempenho (menos faltas de página) foi: Ótimo, com 7 faltas.
+FIFO: 10 faltas
+LRU: 10 faltas
+Clock: 10 faltas
+Ótimo: 7 faltas
+
+Análise:
+O algoritmo com melhor desempenho (menos faltas de página): Ótimo
    ```
-
-Em seguida, um **gráfico de barras** será exibido, com cores distintas para cada algoritmo e o número de faltas rotulado acima de cada barra.
-## ⚙️ Configurações
-   ```
-   Você pode alterar a sequência de páginas ou o número de quadros diretamente no método main:
-
-   java
-   List<Integer> sequenciaPaginas = Arrays.asList(1, 2, 3, 2, 4, 1, 5, 2, 4, 3, 2, 1);
-   static final int NUM_QUADROS = 3;
-   ```
-
 
 ## 👨‍💻 Autores
-Desenvolvido por **Diego Benevides** e **Ian Sampaio**.  
+Desenvolvido por **Diego Benevides** e **Ian Sampaio**.
+
+## 🔗 Repositório
+
+[Acesse o repositório do projeto no GitHub.](https://github.com/diegobenevidss/Simulador-de-Algoritmos-de-Substitui-o-de-P-ginas)
+ 
+## **Referências**
+- Java Swing: [Link1](https://docs.oracle.com/javase/tutorial/uiswing/), [Link2](https://www.devmedia.com.br/introducao-a-interface-gui-no-java/25646);
+- JCommom: [Link](https://www.jfree.org/jcommon/);
+- JFreeChart: [Link](https://www.jfree.org/jfreechart/);
+- TANENBAUM, A. S.; BOS, H. Modern Operating Systems. 4th ed. Pearson, 2015;
+- SILBERSCHATZ, A.; GALVIN, P. B.; GAGNE, G. Operating System Concepts. 10th ed. Wiley, 2018;
+- STALLINGS, W. Sistemas Operacionais: Internals e Design Principles. 7ª ed. Pearson, 2013.
+
+## **Palavras-Chave**
+Paginação. Algorítimos de substituição. Sistemas operacionais. Java. FIFO. LRU. Clock. Ótimo. Simulador.
+
+## Considerações Finais
 Este projeto tem fins educacionais e demonstra como diferentes algoritmos de gerenciamento de memória se comportam diante da mesma sequência de páginas.
