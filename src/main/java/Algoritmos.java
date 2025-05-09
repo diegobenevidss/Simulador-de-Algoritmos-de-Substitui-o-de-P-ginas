@@ -2,35 +2,7 @@ package main.java;
 
 import java.util.*;
 
-public class Main {
-    static final int NUM_QUADROS = 3;
-
-    public static void main(String[] args) {
-        List<Integer> sequenciaPaginas = Arrays.asList(1, 2, 3, 2, 4, 1, 5, 2, 4, 3, 2, 1);
-
-        int faltasFIFO = fifo(sequenciaPaginas, NUM_QUADROS);
-        int faltasLRU = lru(sequenciaPaginas, NUM_QUADROS);
-        int faltasClock = clock(sequenciaPaginas, NUM_QUADROS);
-        int faltasOtimo = otimo(sequenciaPaginas, NUM_QUADROS);
-
-        System.out.println("Método FIFO - " + faltasFIFO + " faltas de página");
-        System.out.println("Método LRU - " + faltasLRU + " faltas de página");
-        System.out.println("Método Relógio - " + faltasClock + " faltas de página");
-        System.out.println("Método Ótimo - " + faltasOtimo + " faltas de página");
-
-        Map<String, Integer> resultados = new HashMap<>();
-        resultados.put("FIFO", faltasFIFO);
-        resultados.put("LRU", faltasLRU);
-        resultados.put("Relógio", faltasClock);
-        resultados.put("Ótimo", faltasOtimo);
-
-        String melhor = Collections.min(resultados.entrySet(), Map.Entry.comparingByValue()).getKey();
-        int faltasMelhor = resultados.get(melhor);
-
-        System.out.println("\nAnálise:");
-        System.out.println("O algoritmo com melhor desempenho (menos faltas de página) foi: " + melhor + ", com " + faltasMelhor + " faltas.");
-    }
-
+public class Algoritmos {
     public static int fifo(List<Integer> paginas, int quadros) {
         Set<Integer> memoria = new HashSet<>();
         Queue<Integer> fila = new LinkedList<>();

@@ -44,13 +44,11 @@ public class GraficoBarras extends JPanel {
             g2d.setColor(Color.BLACK);
             g2d.drawRect(x, y, larguraBarra, barHeight);
 
-            // Nome do algoritmo
             String nome = entry.getKey();
             FontMetrics fm = g2d.getFontMetrics();
             int nomeX = x + (larguraBarra - fm.stringWidth(nome)) / 2;
             g2d.drawString(nome, nomeX, altura - 30);
 
-            // Número de faltas
             String faltas = String.valueOf(entry.getValue());
             int faltasX = x + (larguraBarra - fm.stringWidth(faltas)) / 2;
             g2d.drawString(faltas, faltasX, y - 5);
@@ -58,7 +56,6 @@ public class GraficoBarras extends JPanel {
             i++;
         }
 
-        // Eixo Y (opcional)
         g2d.drawLine(margem - 10, altura - margem, margem - 10, margem);
     }
 }
